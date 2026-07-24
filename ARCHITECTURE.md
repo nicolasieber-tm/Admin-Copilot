@@ -259,7 +259,7 @@ admin-copilot/
 | 1 | Erklärungssprachen zum Start (DE einfach/normal + welche weiteren?) | Phase 3 |
 | 2 | Absender-Domain für Erinnerungs-E-Mails (Resend-Verifikation) | Phase 4 |
 | 3 | ~~Analyse-Limit pro Nutzer~~ erledigt: 20 Analysen/Workspace/24h (Enqueue+Retry) + 30 Chat-Fragen/Nutzer/Tag (2026-07-25) | – |
-| 4 | Vercel-Account/Team für Deployment (Entscheid: Vercel, 2026-07-24) | vor Pilot |
-| 5 | GitHub-Remote (Repo-Name `admin-copilot`?) | offen |
+| 4 | ~~Vercel-Deployment~~ live: https://admin-copilot-nine.vercel.app (2026-07-25, Auth-Redirect-URLs in Supabase gesetzt) | – |
+| 5 | ~~GitHub-Remote~~ erledigt: https://github.com/nicolasieber-tm/Admin-Copilot (privat, 2026-07-25) | – |
 | 6 | ~~KI-API-Key~~ erledigt: `OPENAI_API_KEY` gesetzt (2026-07-24) | – |
 | 7 | Leaked-Password-Protection im Auth-Dashboard aktivieren (Advisor-Hinweis) | vor Pilot |
