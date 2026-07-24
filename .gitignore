@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+next-env.d.ts
+
+# Produktionsbuilds
+build/
+dist/
+
+# Umgebungsvariablen – niemals committen
+.env
+.env.local
+.env.*.local
+
+# Supabase lokal
+supabase/.temp/
+supabase/.branches/
+
+# Logs & Betriebssystem
+*.log
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
