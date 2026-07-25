@@ -368,7 +368,7 @@ export function UploadForm({
               {selected.map((item, index) => (
                 <li
                   key={`${item.file.name}-${index}`}
-                  className="flex items-center gap-3 rounded-xl bg-surface p-3 shadow-sm ring-1 ring-black/5"
+                  className="flex items-center gap-3 rounded-xl bg-surface p-3 card-elevated"
                 >
                   {item.previewUrl ? (
                     <Image

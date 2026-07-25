@@ -118,7 +118,7 @@ export function BudgetItemEditForm({
     <div className="flex flex-col gap-5">
       <form
         onSubmit={save}
-        className="flex flex-col gap-4 rounded-2xl bg-surface p-5 shadow-sm ring-1 ring-black/5"
+        className="flex flex-col gap-4 rounded-2xl bg-surface p-5 card-elevated"
       >
         <FormError message={error} />
         <FormNotice message={notice} />

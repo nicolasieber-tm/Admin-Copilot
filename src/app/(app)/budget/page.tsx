@@ -71,7 +71,7 @@ export default async function BudgetPage({
         <h1 className="text-2xl font-semibold tracking-tight">{de.budget.title}</h1>
       </div>
 
-      <div className="flex items-center justify-between rounded-2xl bg-surface px-3 py-2 shadow-sm ring-1 ring-black/5">
+      <div className="flex items-center justify-between rounded-2xl bg-surface px-3 py-2 card-elevated">
         <Link
           href={`/budget?m=${shiftMonth(month, -1)}`}
           aria-label={de.budget.prevMonth}
@@ -89,7 +89,7 @@ export default async function BudgetPage({
         </Link>
       </div>
 
-      <section className="rounded-2xl bg-surface p-5 shadow-sm ring-1 ring-black/5">
+      <section className="rounded-2xl bg-surface p-5 card-elevated">
         <dl className="flex flex-col gap-2 text-sm">
           <div className="flex justify-between gap-4">
             <dt className="text-muted">{de.budget.summary.income}</dt>
@@ -125,14 +125,14 @@ export default async function BudgetPage({
       <NewBudgetItemForm month={month} />
 
       {(items ?? []).length === 0 && (
-        <div className="rounded-2xl bg-surface p-6 text-center shadow-sm ring-1 ring-black/5">
+        <div className="rounded-2xl bg-surface p-6 text-center card-elevated">
           <p className="text-sm leading-relaxed text-muted">{de.budget.empty}</p>
         </div>
       )}
 
       {incomeItems.length > 0 && (
-        <section className="rounded-2xl bg-surface p-5 shadow-sm ring-1 ring-black/5">
-          <h2 className="mb-1 text-sm font-semibold uppercase tracking-wide text-muted">
+        <section className="rounded-2xl bg-surface p-5 card-elevated">
+          <h2 className="mb-1 text-[15px] font-semibold tracking-tight">
             {de.budget.sections.income}
           </h2>
           <ul className="flex flex-col divide-y divide-black/5">
@@ -144,8 +144,8 @@ export default async function BudgetPage({
       )}
 
       {expenseItems.length > 0 && (
-        <section className="rounded-2xl bg-surface p-5 shadow-sm ring-1 ring-black/5">
-          <h2 className="mb-1 text-sm font-semibold uppercase tracking-wide text-muted">
+        <section className="rounded-2xl bg-surface p-5 card-elevated">
+          <h2 className="mb-1 text-[15px] font-semibold tracking-tight">
             {de.budget.sections.expenses}
           </h2>
           <ul className="flex flex-col divide-y divide-black/5">

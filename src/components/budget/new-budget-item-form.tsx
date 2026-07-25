@@ -93,9 +93,9 @@ export function NewBudgetItemForm({ month }: { month: string }) {
   return (
     <form
       onSubmit={submit}
-      className="flex flex-col gap-4 rounded-2xl bg-surface p-5 shadow-sm ring-1 ring-black/5"
+      className="flex flex-col gap-4 rounded-2xl bg-surface p-5 card-elevated"
     >
-      <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">
+      <h2 className="text-[15px] font-semibold tracking-tight">
         {de.budget.newItem}
       </h2>
       <FormError message={error} />

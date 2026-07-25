@@ -130,7 +130,7 @@ export function DocumentChat({
           <aside className="fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col bg-surface shadow-2xl">
             <header className="flex items-center justify-between gap-3 border-b border-black/5 px-5 py-4">
               <div>
-                <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">
+                <h2 className="text-[15px] font-semibold tracking-tight">
                   {de.documents.chat.title}
                 </h2>
                 <p className="mt-0.5 text-xs leading-relaxed text-muted">

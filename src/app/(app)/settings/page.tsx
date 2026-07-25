@@ -23,8 +23,8 @@ export default async function SettingsPage() {
         {de.settings.title}
       </h1>
 
-      <section className="rounded-2xl bg-surface p-5 shadow-sm ring-1 ring-black/5">
-        <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-muted">
+      <section className="rounded-2xl bg-surface p-5 card-elevated">
+        <h2 className="mb-4 text-[15px] font-semibold tracking-tight">
           {de.settings.account}
         </h2>
         <ProfileForm
@@ -36,8 +36,8 @@ export default async function SettingsPage() {
         />
       </section>
 
-      <section className="rounded-2xl bg-surface p-5 shadow-sm ring-1 ring-black/5">
-        <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted">
+      <section className="rounded-2xl bg-surface p-5 card-elevated">
+        <h2 className="mb-2 text-[15px] font-semibold tracking-tight">
           {de.settings.privacyTitle}
         </h2>
         <p className="text-sm leading-relaxed text-muted">
@@ -48,7 +48,7 @@ export default async function SettingsPage() {
       <form action="/auth/signout" method="post">
         <button
           type="submit"
-          className="w-full rounded-xl bg-surface px-4 py-3 text-sm font-medium text-red-700 shadow-sm ring-1 ring-black/5 transition hover:bg-red-50"
+          className="w-full rounded-xl bg-surface px-4 py-3 text-sm font-medium text-red-700 card-elevated transition hover:bg-red-50"
         >
           {de.auth.logout}
         </button>

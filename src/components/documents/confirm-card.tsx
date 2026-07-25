@@ -72,7 +72,7 @@ export function ConfirmCard({
 
   return (
     <section className="rounded-2xl bg-surface p-5 shadow-sm ring-2 ring-accent/30">
-      <h2 className="mb-1 text-sm font-semibold uppercase tracking-wide text-accent-strong">
+      <h2 className="mb-1 text-[15px] font-semibold tracking-tight text-accent-strong">
         {de.documents.confirm.title}
       </h2>
       <p className="mb-4 text-sm leading-relaxed text-muted">

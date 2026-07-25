@@ -102,8 +102,9 @@ export function BudgetItemRow({ item }: { item: BudgetItemRowData }) {
         </span>
         {!isOverviewOnly && (
           <span
-            className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${budgetStatusBadgeClass(item.status)}`}
+            className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-medium ${budgetStatusBadgeClass(item.status)}`}
           >
+            <span className="h-1 w-1 rounded-full bg-current opacity-70" />
             {budgetStatusLabel(item.status)}
           </span>
         )}

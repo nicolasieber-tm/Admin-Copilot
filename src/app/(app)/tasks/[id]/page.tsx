@@ -35,7 +35,7 @@ export default async function TaskDetailPage({
         <h1 className="text-2xl font-semibold tracking-tight">
           {de.tasks.detail.title}
         </h1>
-        <div className="rounded-2xl bg-surface p-6 text-center shadow-sm ring-1 ring-black/5">
+        <div className="rounded-2xl bg-surface p-6 text-center card-elevated">
           <p className="text-sm text-muted">{de.tasks.detail.notFound}</p>
         </div>
         <Link href="/tasks" className="text-sm text-accent-strong transition hover:opacity-80">

@@ -10,7 +10,7 @@ export default function UpdatePasswordPage() {
       <h1 className="text-2xl font-semibold tracking-tight">
         {de.auth.updatePassword.title}
       </h1>
-      <div className="rounded-2xl bg-surface p-5 shadow-sm ring-1 ring-black/5">
+      <div className="rounded-2xl bg-surface p-5 card-elevated">
         <UpdatePasswordForm />
       </div>
     </div>

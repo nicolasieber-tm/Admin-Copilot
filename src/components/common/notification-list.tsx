@@ -31,7 +31,7 @@ export function NotificationList({ items }: { items: NotificationItem[] }) {
 
   return (
     <section className="rounded-2xl bg-accent-soft p-5 ring-1 ring-accent/20">
-      <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-accent-strong">
+      <h2 className="mb-2 text-[15px] font-semibold tracking-tight text-accent-strong">
         {de.dashboard.notifications}
       </h2>
       <ul className="flex flex-col divide-y divide-accent/10">

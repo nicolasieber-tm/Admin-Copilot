@@ -223,8 +223,9 @@ export default async function DocumentDetailPage({
           {doc.title ?? doc.original_filename ?? de.documents.detail.title}
         </h1>
         <span
-          className={`self-start rounded-full px-2.5 py-1 text-xs font-medium ${statusBadgeClass(doc.status)}`}
+          className={`inline-flex items-center gap-1.5 self-start rounded-full px-2.5 py-1 text-xs font-medium ${statusBadgeClass(doc.status)}`}
         >
+          <span className="h-1.5 w-1.5 rounded-full bg-current opacity-70" />
           {statusLabel(doc.status)}
         </span>
         {(doc.status === "failed" && analysis?.error_code === "daily_limit_reached"
@@ -239,7 +240,7 @@ export default async function DocumentDetailPage({
       </header>
 
       {isProcessing && (
-        <section className="rounded-2xl bg-surface p-5 shadow-sm ring-1 ring-black/5">
+        <section className="rounded-2xl bg-surface p-5 card-elevated">
           <div className="flex items-center gap-3">
             <span className="h-5 w-5 shrink-0 animate-spin rounded-full border-2 border-accent border-t-transparent" />
             <p className="text-sm font-medium">
@@ -253,10 +254,10 @@ export default async function DocumentDetailPage({
       {doc.status === "failed" && <RetryAnalysisButton documentId={doc.id} />}
 
       {explanation && (
-        <section className="flex flex-col gap-4 rounded-2xl bg-surface p-5 shadow-sm ring-1 ring-black/5">
+        <section className="flex flex-col gap-4 rounded-2xl bg-surface p-5 card-elevated">
           {explanation.what_is_it && (
             <div>
-              <h2 className="mb-1 text-sm font-semibold uppercase tracking-wide text-muted">
+              <h2 className="mb-1 text-[15px] font-semibold tracking-tight">
                 {de.documents.analysis.whatIsIt}
               </h2>
               <p className="leading-relaxed">
@@ -266,7 +267,7 @@ export default async function DocumentDetailPage({
           )}
           {explanation.why_it_matters && (
             <div>
-              <h2 className="mb-1 text-sm font-semibold uppercase tracking-wide text-muted">
+              <h2 className="mb-1 text-[15px] font-semibold tracking-tight">
                 {de.documents.analysis.whyItMatters}
               </h2>
               <p className="leading-relaxed">
@@ -276,7 +277,7 @@ export default async function DocumentDetailPage({
           )}
           {explanation.what_to_do && explanation.what_to_do.length > 0 && (
             <div>
-              <h2 className="mb-1 text-sm font-semibold uppercase tracking-wide text-muted">
+              <h2 className="mb-1 text-[15px] font-semibold tracking-tight">
                 {de.documents.analysis.whatToDo}
               </h2>
               <ol className="flex list-decimal flex-col gap-1 pl-5 leading-relaxed">
@@ -288,7 +289,7 @@ export default async function DocumentDetailPage({
           )}
           {explanation.possible_consequence && (
             <div>
-              <h2 className="mb-1 text-sm font-semibold uppercase tracking-wide text-muted">
+              <h2 className="mb-1 text-[15px] font-semibold tracking-tight">
                 {de.documents.analysis.possibleConsequence}
               </h2>
               <p className="leading-relaxed">
@@ -304,7 +305,7 @@ export default async function DocumentDetailPage({
 
       {uncertainties.length > 0 && doc.status === "ready_for_review" && (
         <section className="rounded-2xl bg-amber-50 p-5 ring-1 ring-amber-200">
-          <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-amber-800">
+          <h2 className="mb-2 text-[15px] font-semibold tracking-tight text-amber-800">
             {de.documents.analysis.uncertainties}
           </h2>
           <ul className="flex list-disc flex-col gap-1 pl-5 text-sm leading-relaxed text-amber-900">
@@ -332,8 +333,8 @@ export default async function DocumentDetailPage({
       )}
 
       {tasks && tasks.length > 0 && (
-        <section className="rounded-2xl bg-surface p-5 shadow-sm ring-1 ring-black/5">
-          <h2 className="mb-1 text-sm font-semibold uppercase tracking-wide text-muted">
+        <section className="rounded-2xl bg-surface p-5 card-elevated">
+          <h2 className="mb-1 text-[15px] font-semibold tracking-tight">
             {de.documents.detail.linkedTasks}
           </h2>
           <ul className="flex flex-col divide-y divide-black/5">
@@ -345,8 +346,8 @@ export default async function DocumentDetailPage({
       )}
 
       {factEntities.length > 0 && hasResult && (
-        <section className="rounded-2xl bg-surface p-5 shadow-sm ring-1 ring-black/5">
-          <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted">
+        <section className="rounded-2xl bg-surface p-5 card-elevated">
+          <h2 className="mb-3 text-[15px] font-semibold tracking-tight">
             {de.documents.analysis.extractedTitle}
           </h2>
           <dl className="flex flex-col divide-y divide-black/5">
@@ -384,8 +385,8 @@ export default async function DocumentDetailPage({
         <DocumentChat documentId={doc.id} initialQuestions={questions ?? []} />
       )}
 
-      <section className="rounded-2xl bg-surface p-4 shadow-sm ring-1 ring-black/5">
-        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted">
+      <section className="rounded-2xl bg-surface p-4 card-elevated">
+        <h2 className="mb-3 text-[15px] font-semibold tracking-tight">
           {de.documents.detail.preview}
         </h2>
         {isPdf ? (
@@ -421,8 +422,8 @@ export default async function DocumentDetailPage({
         )}
       </section>
 
-      <section className="rounded-2xl bg-surface p-4 shadow-sm ring-1 ring-black/5">
-        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted">
+      <section className="rounded-2xl bg-surface p-4 card-elevated">
+        <h2 className="mb-3 text-[15px] font-semibold tracking-tight">
           {de.documents.detail.infos}
         </h2>
         <dl className="flex flex-col gap-2 text-sm">

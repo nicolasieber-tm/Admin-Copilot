@@ -135,7 +135,7 @@ export function TaskEditForm({
     <div className="flex flex-col gap-5">
       <form
         onSubmit={save}
-        className="flex flex-col gap-4 rounded-2xl bg-surface p-5 shadow-sm ring-1 ring-black/5"
+        className="flex flex-col gap-4 rounded-2xl bg-surface p-5 card-elevated"
       >
         <FormError message={error} />
         <FormNotice message={notice} />
@@ -234,8 +234,8 @@ export function TaskEditForm({
         </button>
       </form>
 
-      <section className="rounded-2xl bg-surface p-5 shadow-sm ring-1 ring-black/5">
-        <h2 className="mb-1 text-sm font-semibold uppercase tracking-wide text-muted">
+      <section className="rounded-2xl bg-surface p-5 card-elevated">
+        <h2 className="mb-1 text-[15px] font-semibold tracking-tight">
           {de.tasks.reminders.title}
         </h2>
         <p className="mb-3 text-xs leading-relaxed text-muted">

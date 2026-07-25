@@ -34,7 +34,7 @@ export default async function DocumentsPage() {
             <li key={doc.id}>
               <Link
                 href={`/documents/${doc.id}`}
-                className="flex items-center justify-between gap-3 rounded-2xl bg-surface p-4 shadow-sm ring-1 ring-black/5 transition hover:ring-accent/30"
+                className="card-elevated flex items-center justify-between gap-3 rounded-2xl bg-surface p-4 transition hover:opacity-90 active:scale-[0.99]"
               >
                 <span className="min-w-0">
                   <span className="block truncate font-medium">
@@ -46,8 +46,9 @@ export default async function DocumentsPage() {
                   </span>
                 </span>
                 <span
-                  className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium ${statusBadgeClass(doc.status)}`}
+                  className={`inline-flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ${statusBadgeClass(doc.status)}`}
                 >
+                  <span className="h-1.5 w-1.5 rounded-full bg-current opacity-70" />
                   {statusLabel(doc.status)}
                 </span>
               </Link>
@@ -55,7 +56,7 @@ export default async function DocumentsPage() {
           ))}
         </ul>
       ) : (
-        <div className="rounded-2xl bg-surface p-6 text-center shadow-sm ring-1 ring-black/5">
+        <div className="rounded-2xl bg-surface p-6 text-center card-elevated">
           <p className="text-sm leading-relaxed text-muted">
             {de.documents.empty}
           </p>

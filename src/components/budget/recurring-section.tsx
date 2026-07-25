@@ -243,8 +243,8 @@ export function RecurringSection({ items }: { items: RecurringRow[] }) {
   }
 
   return (
-    <section className="rounded-2xl bg-surface p-5 shadow-sm ring-1 ring-black/5">
-      <h2 className="mb-1 text-sm font-semibold uppercase tracking-wide text-muted">
+    <section className="rounded-2xl bg-surface p-5 card-elevated">
+      <h2 className="mb-1 text-[15px] font-semibold tracking-tight">
         {de.budget.recurring.title}
       </h2>
       <p className="mb-3 text-xs leading-relaxed text-muted">

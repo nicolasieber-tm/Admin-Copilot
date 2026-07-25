@@ -15,7 +15,7 @@ export default function AuthLayout({
           <p className="mt-1 max-w-xs text-sm text-muted">{de.app.tagline}</p>
         </div>
       </div>
-      <div className="w-full max-w-sm rounded-2xl bg-surface p-6 shadow-sm ring-1 ring-black/5">
+      <div className="w-full max-w-sm rounded-2xl bg-surface p-6 card-elevated">
         {children}
       </div>
     </div>
