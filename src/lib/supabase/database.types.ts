@@ -841,6 +841,7 @@ export type Database = {
           deleted_at: string | null
           display_name: string | null
           email: string
+          email_reminders_enabled: boolean
           explanation_mode: Database["public"]["Enums"]["explanation_mode"]
           id: string
           preferred_language: string
@@ -853,6 +854,7 @@ export type Database = {
           deleted_at?: string | null
           display_name?: string | null
           email: string
+          email_reminders_enabled?: boolean
           explanation_mode?: Database["public"]["Enums"]["explanation_mode"]
           id: string
           preferred_language?: string
@@ -865,6 +867,7 @@ export type Database = {
           deleted_at?: string | null
           display_name?: string | null
           email?: string
+          email_reminders_enabled?: boolean
           explanation_mode?: Database["public"]["Enums"]["explanation_mode"]
           id?: string
           preferred_language?: string

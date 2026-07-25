@@ -462,6 +462,9 @@ export const de = {
       it: "Italienisch",
       en: "Englisch",
     } as Record<string, string>,
+    emailReminders: "E-Mail-Erinnerungen",
+    emailRemindersHint:
+      "Erinnerungen an Fristen zusätzlich per E-Mail erhalten (7 und 2 Tage vorher sowie am Fälligkeitstag).",
     explanationMode: "Darstellung",
     explanationModes: {
       normal: "Normale Sprache",

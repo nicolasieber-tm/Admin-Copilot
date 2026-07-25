@@ -56,7 +56,9 @@ export default async function SettingsPage() {
     await Promise.all([
       supabase
         .from("users")
-        .select("display_name, email, explanation_mode, preferred_language")
+        .select(
+          "display_name, email, explanation_mode, preferred_language, email_reminders_enabled"
+        )
         .eq("id", user!.id)
         .single(),
       supabase
@@ -85,6 +87,7 @@ export default async function SettingsPage() {
           initialDisplayName={profile?.display_name ?? ""}
           initialExplanationMode={profile?.explanation_mode ?? "normal"}
           initialLanguage={profile?.preferred_language ?? "de"}
+          initialEmailReminders={profile?.email_reminders_enabled ?? true}
           email={profile?.email ?? user!.email ?? ""}
         />
       </section>

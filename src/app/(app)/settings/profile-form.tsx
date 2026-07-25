@@ -19,12 +19,14 @@ export function ProfileForm({
   initialDisplayName,
   initialExplanationMode,
   initialLanguage,
+  initialEmailReminders,
   email,
 }: {
   userId: string;
   initialDisplayName: string;
   initialExplanationMode: ExplanationMode;
   initialLanguage: string;
+  initialEmailReminders: boolean;
   email: string;
 }) {
   const [displayName, setDisplayName] = useState(initialDisplayName);
@@ -32,6 +34,7 @@ export function ProfileForm({
     initialExplanationMode
   );
   const [language, setLanguage] = useState(initialLanguage);
+  const [emailReminders, setEmailReminders] = useState(initialEmailReminders);
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
@@ -48,6 +51,7 @@ export function ProfileForm({
         display_name: displayName.trim() || null,
         explanation_mode: explanationMode,
         preferred_language: language,
+        email_reminders_enabled: emailReminders,
       })
       .eq("id", userId);
     setPending(false);
@@ -112,6 +116,26 @@ export function ProfileForm({
           <option value="simple">{de.settings.explanationModes.simple}</option>
         </select>
       </div>
+      <label
+        htmlFor="emailReminders"
+        className="flex cursor-pointer items-start justify-between gap-3 rounded-xl bg-black/[0.03] px-4 py-3"
+      >
+        <span>
+          <span className="block text-sm font-medium">
+            {de.settings.emailReminders}
+          </span>
+          <span className="block text-xs leading-relaxed text-muted">
+            {de.settings.emailRemindersHint}
+          </span>
+        </span>
+        <input
+          id="emailReminders"
+          type="checkbox"
+          checked={emailReminders}
+          onChange={(e) => setEmailReminders(e.target.checked)}
+          className="mt-0.5 h-5 w-5 shrink-0 accent-[color:var(--accent)]"
+        />
+      </label>
       <button type="submit" disabled={pending} className={buttonPrimaryClass}>
         {de.settings.save}
       </button>

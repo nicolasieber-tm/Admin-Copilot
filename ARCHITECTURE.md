@@ -44,8 +44,8 @@ Stand: 2026-07-24 · Status: **Entwurf zur Freigabe**
 │                                                          │
 │  Edge Functions (Service Role, nur serverseitig):        │
 │  – analyse-document   KI-Pipeline (Schritte 1–9)         │
-│  – send-reminders     E-Mail-Versand (folgt mit Resend;  │
-│                       In-App läuft rein in SQL/pg_cron)  │
+│  – send-reminders     E-Mail-Versand via Resend          │
+│                       (In-App läuft rein in SQL/pg_cron) │
 │  – recurring-items    Monatsinstanzen erzeugen (pg_cron) │
 │  – delete-account     Löschkaskade inkl. Storage         │
 └──────────────┬───────────────────────────┬──────────────┘
@@ -257,7 +257,7 @@ admin-copilot/
 | # | Punkt | Benötigt bis |
 |---|---|---|
 | 1 | Erklärungssprachen zum Start (DE einfach/normal + welche weiteren?) | Phase 3 |
-| 2 | Absender-Domain für Erinnerungs-E-Mails (Resend-Verifikation) | Phase 4 |
+| 2 | ~~Absender-Domain für Erinnerungs-E-Mails~~ erledigt: admin-pilot.trendingmedia.ch verifiziert, `send-reminders` (v1) verschickt via Resend, pro Nutzer abschaltbar im Profil (2026-07-25) | – |
 | 3 | ~~Analyse-Limit pro Nutzer~~ erledigt: 20 Analysen/Workspace/24h (Enqueue+Retry) + 30 Chat-Fragen/Nutzer/Tag (2026-07-25) | – |
 | 4 | ~~Vercel-Deployment~~ live: https://admin-copilot-nine.vercel.app (2026-07-25, Auth-Redirect-URLs in Supabase gesetzt) | – |
 | 5 | ~~GitHub-Remote~~ erledigt: https://github.com/nicolasieber-tm/Admin-Copilot (privat, 2026-07-25) | – |
