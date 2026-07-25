@@ -32,20 +32,18 @@ export function BottomNav() {
         key={href}
         href={href}
         aria-current={active ? "page" : undefined}
-        className={`flex min-w-0 flex-1 flex-col items-center gap-0.5 px-1 py-2 text-[11px] transition ${
-          active
-            ? "font-semibold text-accent-deep"
-            : "font-medium text-muted hover:text-foreground"
-        }`}
+        className="flex min-w-0 flex-1 items-start justify-center py-1.5"
       >
         <span
-          className={`flex h-7 items-center justify-center rounded-full px-4 transition ${
-            active ? "bg-accent-soft" : ""
+          className={`flex min-w-0 max-w-full flex-col items-center gap-0.5 rounded-2xl px-2 py-1.5 text-[11px] transition ${
+            active
+              ? "bg-accent-soft font-semibold text-accent-deep"
+              : "font-medium text-muted hover:text-foreground"
           }`}
         >
           <Icon className="h-6 w-6" strokeWidth={active ? 2.2 : 1.8} />
+          <span className="max-w-full truncate">{label}</span>
         </span>
-        <span className="truncate">{label}</span>
       </Link>
     );
   };
@@ -56,9 +54,9 @@ export function BottomNav() {
       className="fixed inset-x-0 bottom-0 z-20 border-t border-black/5 bg-surface/95 backdrop-blur supports-[backdrop-filter]:bg-surface/80"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
-      <div className="mx-auto flex max-w-lg items-stretch justify-between px-2">
+      <div className="mx-auto flex max-w-lg items-stretch justify-between px-1">
         {leftItems.map(renderItem)}
-        <div className="flex w-[72px] shrink-0 items-start justify-center">
+        <div className="flex w-16 shrink-0 items-start justify-center">
           <Link
             href="/documents/upload"
             aria-label={de.nav.scan}
