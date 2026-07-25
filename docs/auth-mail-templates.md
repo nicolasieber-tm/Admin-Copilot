@@ -12,7 +12,7 @@ Anzeigename «Admin Copilot».
 
 ## 1 · Confirm sign up (Registrierung bestätigen)
 
-**Subject:** `Bestätige deine E-Mail-Adresse – Admin Copilot`
+**Subject:** `Bestätige deine E-Mail-Adresse beim Admin Copilot`
 
 ```html
 <html lang="de">
@@ -21,7 +21,7 @@ Anzeigename «Admin Copilot».
       <div style="background:#0a3a4a; color:#ffffff; padding:20px 24px; font-size:15px; font-weight:700;">Admin Copilot</div>
       <div style="padding:24px;">
         <p style="margin:0 0 6px; font-size:17px; font-weight:600; color:#17222b;">Willkommen beim Admin Copilot!</p>
-        <p style="margin:0 0 20px; font-size:14px; line-height:1.6; color:#5c6b78;">Schön, bist du da. Bestätige deine E-Mail-Adresse, um loszulegen &ndash; danach kannst du deinen ersten Brief scannen.</p>
+        <p style="margin:0 0 20px; font-size:14px; line-height:1.6; color:#5c6b78;">Schön, bist du da. Bestätige deine E-Mail-Adresse, um loszulegen. Danach kannst du deinen ersten Brief scannen.</p>
         <a href="{{ .ConfirmationURL }}" style="display:inline-block; background:#0e7490; color:#ffffff; text-decoration:none; border-radius:999px; padding:11px 22px; font-size:14px; font-weight:600;">E-Mail-Adresse bestätigen</a>
         <p style="margin:20px 0 0; font-size:12px; line-height:1.6; color:#8a969e;">Funktioniert der Knopf nicht? Kopiere diesen Link in deinen Browser:<br /><span style="word-break:break-all; color:#0e7490;">{{ .ConfirmationURL }}</span></p>
       </div>
@@ -35,7 +35,7 @@ Anzeigename «Admin Copilot».
 
 ## 2 · Magic Link (Anmelde-Link)
 
-**Subject:** `Dein Anmelde-Link – Admin Copilot`
+**Subject:** `Dein Anmelde-Link für den Admin Copilot`
 
 ```html
 <html lang="de">
@@ -44,7 +44,7 @@ Anzeigename «Admin Copilot».
       <div style="background:#0a3a4a; color:#ffffff; padding:20px 24px; font-size:15px; font-weight:700;">Admin Copilot</div>
       <div style="padding:24px;">
         <p style="margin:0 0 6px; font-size:17px; font-weight:600; color:#17222b;">Dein Anmelde-Link</p>
-        <p style="margin:0 0 20px; font-size:14px; line-height:1.6; color:#5c6b78;">Mit einem Klick bist du angemeldet &ndash; ganz ohne Passwort. Der Link ist nur kurze Zeit gültig.</p>
+        <p style="margin:0 0 20px; font-size:14px; line-height:1.6; color:#5c6b78;">Mit einem Klick bist du ganz ohne Passwort angemeldet. Der Link ist nur kurze Zeit gültig.</p>
         <a href="{{ .ConfirmationURL }}" style="display:inline-block; background:#0e7490; color:#ffffff; text-decoration:none; border-radius:999px; padding:11px 22px; font-size:14px; font-weight:600;">Jetzt anmelden</a>
         <p style="margin:20px 0 0; font-size:12px; line-height:1.6; color:#8a969e;">Funktioniert der Knopf nicht? Kopiere diesen Link in deinen Browser:<br /><span style="word-break:break-all; color:#0e7490;">{{ .ConfirmationURL }}</span></p>
       </div>
@@ -58,7 +58,7 @@ Anzeigename «Admin Copilot».
 
 ## 3 · Reset Password (Passwort zurücksetzen)
 
-**Subject:** `Passwort zurücksetzen – Admin Copilot`
+**Subject:** `Passwort für den Admin Copilot zurücksetzen`
 
 ```html
 <html lang="de">
@@ -71,7 +71,7 @@ Anzeigename «Admin Copilot».
         <a href="{{ .ConfirmationURL }}" style="display:inline-block; background:#0e7490; color:#ffffff; text-decoration:none; border-radius:999px; padding:11px 22px; font-size:14px; font-weight:600;">Neues Passwort festlegen</a>
         <p style="margin:20px 0 0; font-size:12px; line-height:1.6; color:#8a969e;">Funktioniert der Knopf nicht? Kopiere diesen Link in deinen Browser:<br /><span style="word-break:break-all; color:#0e7490;">{{ .ConfirmationURL }}</span></p>
       </div>
-      <div style="padding:16px 24px; border-top:1px solid #eef1f2; font-size:12px; line-height:1.6; color:#8a969e;">Du erhältst diese E-Mail, weil das Zurücksetzen des Passworts für dein Admin-Copilot-Konto angefordert wurde. Warst du das nicht, kannst du diese E-Mail ignorieren &ndash; dein Passwort bleibt unverändert.</div>
+      <div style="padding:16px 24px; border-top:1px solid #eef1f2; font-size:12px; line-height:1.6; color:#8a969e;">Du erhältst diese E-Mail, weil das Zurücksetzen des Passworts für dein Admin-Copilot-Konto angefordert wurde. Warst du das nicht, kannst du diese E-Mail ignorieren. Dein Passwort bleibt dann unverändert.</div>
     </div>
   </body>
 </html>
@@ -81,7 +81,7 @@ Anzeigename «Admin Copilot».
 
 ## 4 · Change Email Address (Neue E-Mail-Adresse bestätigen)
 
-**Subject:** `Neue E-Mail-Adresse bestätigen – Admin Copilot`
+**Subject:** `Bestätige deine neue E-Mail-Adresse beim Admin Copilot`
 
 ```html
 <html lang="de">
