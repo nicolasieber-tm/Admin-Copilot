@@ -21,6 +21,11 @@ export const metadata: Metadata = {
     title: de.app.name,
     statusBarStyle: "default",
   },
+  // iOS öffnet die Home-Bildschirm-Version nur mit diesem Apple-Tag
+  // zuverlässig im Vollbild statt in Safari
+  other: {
+    "apple-mobile-web-app-capable": "yes",
+  },
 };
 
 export const viewport: Viewport = {

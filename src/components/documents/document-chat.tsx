@@ -98,11 +98,12 @@ export function DocumentChat({
 
   return (
     <>
-      {/* Schwebender Chat-Knopf – immer sichtbar, oberhalb der Bottom-Nav */}
+      {/* Schwebender Chat-Knopf – sitzt sicher oberhalb von Bottom-Nav und
+          Scan-Button, auch im Home-Bildschirm-Modus (Safe-Area) */}
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="fixed bottom-24 right-4 z-30 flex items-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-accent-strong active:scale-95"
+        className="fixed bottom-[calc(7.5rem+env(safe-area-inset-bottom))] right-4 z-30 flex items-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-accent-strong active:scale-95"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5">
           <path
@@ -194,7 +195,7 @@ export function DocumentChat({
               <div ref={messagesEndRef} />
             </div>
 
-            <div className="border-t border-black/5 px-5 pb-5 pt-3">
+            <div className="border-t border-black/5 px-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] pt-3">
               <FormError message={error} />
               <div className="mb-3 mt-1 flex flex-wrap gap-2">
                 {de.documents.chat.suggestions.map((suggestion) => (
