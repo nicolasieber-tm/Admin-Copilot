@@ -470,6 +470,27 @@ export const de = {
     privacyTitle: "Datenschutz",
     privacyText:
       "Deine Dokumente sind privat gespeichert und nur für dich zugänglich. Sie werden nicht für das Training von KI-Modellen verwendet.",
+    security: "Sicherheit",
+    changePassword: "Passwort ändern",
+    changePasswordHint: "Neues Passwort festlegen – du bleibst angemeldet.",
+    usage: "Heutige Nutzung",
+    usageAnalyses: "Dokument-Analysen",
+    usageQuestions: "Chat-Fragen",
+    usageOf: (used: number, limit: number) => `${used} von ${limit}`,
+    usageHint:
+      "Die Limits gelten pro 24 Stunden und schützen vor unerwarteten Kosten. Morgen stehen sie wieder voll zur Verfügung.",
+    about: "Über die App",
+    aboutVersion: (version: string) => `Version ${version}`,
+    aboutText:
+      "Dein persönlicher Admin-Copilot für Schweizer Verwaltungsdokumente: verstehen, Fristen im Griff behalten, Budget im Blick.",
+    deleteTitle: "Konto löschen",
+    deleteHint:
+      "Entfernt dein Konto mit allen Dokumenten, Aufgaben und Budgetdaten endgültig. Das kann nicht rückgängig gemacht werden.",
+    deleteConfirm:
+      "Möchtest du dein Konto wirklich endgültig löschen?\n\nAlle Dokumente, Aufgaben und Budgetdaten werden entfernt. Das kann nicht rückgängig gemacht werden.",
+    deleteButton: "Konto endgültig löschen",
+    deletePending: "Konto wird gelöscht …",
+    deleteError: "Das Löschen ist fehlgeschlagen. Bitte versuche es erneut.",
   },
   common: {
     loading: "Lädt …",
