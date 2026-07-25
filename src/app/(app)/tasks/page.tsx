@@ -72,22 +72,26 @@ export default async function TasksPage() {
 
   return (
     <div className="flex flex-col gap-5">
-      <h1 className="text-2xl font-semibold tracking-tight">{de.tasks.title}</h1>
+      <h1 className="rise text-2xl font-semibold tracking-tight">{de.tasks.title}</h1>
 
-      <NewTaskForm />
+      <div className="rise-2">
+        <NewTaskForm />
+      </div>
 
-      {!hasAny && (
-        <div className="rounded-2xl bg-surface p-6 text-center card-elevated">
-          <p className="text-sm leading-relaxed text-muted">{de.tasks.empty}</p>
-        </div>
-      )}
+      <div className="rise-3 flex flex-col gap-5">
+        {!hasAny && (
+          <div className="rounded-2xl bg-surface p-6 text-center card-elevated">
+            <p className="text-sm leading-relaxed text-muted">{de.tasks.empty}</p>
+          </div>
+        )}
 
-      <TaskGroup title={de.tasks.groups.overdue} tasks={groups.overdue} tone="danger" />
-      <TaskGroup title={de.tasks.groups.today} tasks={groups.today} />
-      <TaskGroup title={de.tasks.groups.thisWeek} tasks={groups.thisWeek} />
-      <TaskGroup title={de.tasks.groups.later} tasks={groups.later} />
-      <TaskGroup title={de.tasks.groups.noDue} tasks={groups.noDue} tone="muted" />
-      <TaskGroup title={de.tasks.groups.done} tasks={doneVisible} tone="muted" />
+        <TaskGroup title={de.tasks.groups.overdue} tasks={groups.overdue} tone="danger" />
+        <TaskGroup title={de.tasks.groups.today} tasks={groups.today} />
+        <TaskGroup title={de.tasks.groups.thisWeek} tasks={groups.thisWeek} />
+        <TaskGroup title={de.tasks.groups.later} tasks={groups.later} />
+        <TaskGroup title={de.tasks.groups.noDue} tasks={groups.noDue} tone="muted" />
+        <TaskGroup title={de.tasks.groups.done} tasks={doneVisible} tone="muted" />
+      </div>
     </div>
   );
 }

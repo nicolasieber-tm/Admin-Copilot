@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import { de } from "@/lib/i18n/de";
 
 // Cockpit-Nav (Design-Entscheid D2): vier Ziele plus Scan-Button in der Mitte.
@@ -27,6 +28,8 @@ export function BottomNav() {
   // Auf der Scan-Seite gehört kein Tab markiert – sie wird über den
   // mittleren Button erreicht, nicht über die Tabs.
   const onScanPage = pathname === "/documents/upload";
+  // Zähler als Key: jeder Tipp startet den Puls-Ring neu (Motion F)
+  const [scanPulse, setScanPulse] = useState(0);
 
   const renderItem = ({ href, label, icon: Icon }: NavItem) => {
     const active =
@@ -65,8 +68,10 @@ export function BottomNav() {
             href="/documents/upload"
             aria-label={de.nav.scan}
             title={de.nav.scan}
-            className="scan-gradient -mt-6 flex h-14 w-14 items-center justify-center rounded-full text-white shadow-lg shadow-cyan-950/40 ring-4 ring-background transition hover:brightness-110 active:scale-95"
+            onClick={() => setScanPulse((n) => n + 1)}
+            className="scan-gradient relative -mt-6 flex h-14 w-14 items-center justify-center rounded-full text-white shadow-lg shadow-cyan-950/40 ring-4 ring-background transition hover:brightness-110 active:scale-90"
           >
+            {scanPulse > 0 && <span key={scanPulse} className="scan-ring go" />}
             <ScanIcon className="h-6 w-6" />
           </Link>
         </div>

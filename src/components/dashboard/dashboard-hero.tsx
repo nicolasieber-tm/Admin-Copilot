@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { de } from "@/lib/i18n/de";
 import { formatChf } from "@/lib/budget";
+import { AnimatedChf, QuotaBar } from "@/components/dashboard/hero-motion";
 
 type HeroProps = {
   name: string | null;
@@ -55,7 +56,7 @@ export function DashboardHero({
 
   return (
     <section
-      className="hero-gradient -mx-4 -mt-6 px-5 pb-14 text-white"
+      className="rise hero-gradient -mx-4 -mt-6 px-5 pb-14 text-white"
       style={{ paddingTop: "calc(1.5rem + env(safe-area-inset-top))" }}
     >
       <div className="flex items-center justify-between gap-3">
@@ -86,13 +87,13 @@ export function DashboardHero({
               projected < 0 ? "text-red-300" : ""
             }`}
           >
-            {formatChf(projected)}
+            <AnimatedChf value={projected} />
           </p>
 
           <div className="mt-4 flex gap-2.5">
             <Link
               href="/budget"
-              className="min-w-0 flex-1 rounded-2xl bg-white/10 px-3 py-2.5 ring-1 ring-inset ring-white/10 transition hover:bg-white/15"
+              className="pressable min-w-0 flex-1 rounded-2xl bg-white/10 px-3 py-2.5 ring-1 ring-inset ring-white/10 hover:bg-white/15"
             >
               <span className="block truncate text-[10.5px] text-white/65">
                 {de.budget.summary.income}
@@ -103,7 +104,7 @@ export function DashboardHero({
             </Link>
             <Link
               href="/budget"
-              className="min-w-0 flex-1 rounded-2xl bg-white/10 px-3 py-2.5 ring-1 ring-inset ring-white/10 transition hover:bg-white/15"
+              className="pressable min-w-0 flex-1 rounded-2xl bg-white/10 px-3 py-2.5 ring-1 ring-inset ring-white/10 hover:bg-white/15"
             >
               <span className="block truncate text-[10.5px] text-white/65">
                 {de.budget.summary.expenses}
@@ -114,7 +115,7 @@ export function DashboardHero({
             </Link>
             <Link
               href="/tasks"
-              className="min-w-0 flex-1 rounded-2xl bg-white/10 px-3 py-2.5 ring-1 ring-inset ring-white/10 transition hover:bg-white/15"
+              className="pressable min-w-0 flex-1 rounded-2xl bg-white/10 px-3 py-2.5 ring-1 ring-inset ring-white/10 hover:bg-white/15"
             >
               <span className="block truncate text-[10.5px] text-white/65">
                 {de.dashboard.openDeadlines}
@@ -133,16 +134,7 @@ export function DashboardHero({
                   {quota} %
                 </span>
               </div>
-              <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-white/20">
-                <span
-                  className={`block h-full rounded-full bg-gradient-to-r ${
-                    quota > 100
-                      ? "from-red-300 to-red-200"
-                      : "from-teal-300 to-white"
-                  }`}
-                  style={{ width: `${Math.min(quota, 100)}%` }}
-                />
-              </div>
+              <QuotaBar percent={quota} />
             </div>
           )}
         </>

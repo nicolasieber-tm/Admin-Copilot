@@ -56,7 +56,7 @@ function dueChip(task: DeadlineTask): { label: string; cls: string } | null {
 // Aufgaben mit Fälligkeits-Chip rechts – ersetzt die frühere 30-Tage-Zeitleiste.
 export function DeadlineCard({ tasks }: { tasks: DeadlineTask[] }) {
   return (
-    <section className="card-elevated rounded-2xl bg-surface p-4">
+    <section className="rise-3 card-elevated rounded-2xl bg-surface p-4">
       <div className="flex items-baseline justify-between">
         <h2 className="text-[15px] font-semibold tracking-tight">
           {de.dashboard.deadlines}
@@ -83,7 +83,7 @@ export function DeadlineCard({ tasks }: { tasks: DeadlineTask[] }) {
               <li key={task.id}>
                 <Link
                   href={`/tasks/${task.id}`}
-                  className="flex items-center justify-between gap-3 py-2.5 transition hover:opacity-80"
+                  className="pressable flex items-center justify-between gap-3 py-2.5 hover:opacity-80"
                 >
                   <span className="min-w-0">
                     <span className="block truncate text-sm font-medium">

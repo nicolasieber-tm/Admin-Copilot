@@ -30,7 +30,7 @@ export function NotificationList({ items }: { items: NotificationItem[] }) {
   if (items.length === 0) return null;
 
   return (
-    <section className="rounded-2xl bg-accent-soft p-5 ring-1 ring-accent/20">
+    <section className="rise-2 rounded-2xl bg-accent-soft p-5 ring-1 ring-accent/20">
       <h2 className="mb-2 text-[15px] font-semibold tracking-tight text-accent-strong">
         {de.dashboard.notifications}
       </h2>

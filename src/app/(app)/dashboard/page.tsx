@@ -98,7 +98,7 @@ export default async function DashboardPage() {
           <NotificationList items={notifications ?? []} />
 
           {reviewDocs && reviewDocs.length > 0 && (
-            <section className="rounded-2xl bg-amber-50 p-4 ring-1 ring-inset ring-amber-200">
+            <section className="rise-2 rounded-2xl bg-amber-50 p-4 ring-1 ring-inset ring-amber-200">
               <div className="flex items-center gap-3">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-200 text-sm font-bold text-amber-900">
                   {reviewDocs.length}
@@ -117,7 +117,7 @@ export default async function DashboardPage() {
                   <li key={doc.id}>
                     <Link
                       href={`/documents/${doc.id}`}
-                      className="flex items-center justify-between gap-3 py-2.5 transition hover:opacity-80"
+                      className="pressable flex items-center justify-between gap-3 py-2.5 hover:opacity-80"
                     >
                       <span className="min-w-0">
                         <span className="block truncate text-sm font-medium text-amber-900">
@@ -141,7 +141,7 @@ export default async function DashboardPage() {
 
           <DeadlineCard tasks={deadlineTasks} />
 
-          <section className="card-elevated rounded-2xl bg-surface p-4">
+          <section className="rise-4 card-elevated rounded-2xl bg-surface p-4">
             <div className="flex items-baseline justify-between">
               <h2 className="text-[15px] font-semibold tracking-tight">
                 {de.dashboard.openDocuments}
@@ -159,7 +159,7 @@ export default async function DashboardPage() {
                   <li key={doc.id}>
                     <Link
                       href={`/documents/${doc.id}`}
-                      className="flex items-center justify-between gap-3 py-2.5 transition hover:opacity-80"
+                      className="pressable flex items-center justify-between gap-3 py-2.5 hover:opacity-80"
                     >
                       <span className="min-w-0">
                         <span className="block truncate text-sm font-medium">

@@ -19,11 +19,11 @@ export default async function SettingsPage() {
 
   return (
     <div className="flex flex-col gap-5">
-      <h1 className="text-2xl font-semibold tracking-tight">
+      <h1 className="rise text-2xl font-semibold tracking-tight">
         {de.settings.title}
       </h1>
 
-      <section className="rounded-2xl bg-surface p-5 card-elevated">
+      <section className="rise-2 rounded-2xl bg-surface p-5 card-elevated">
         <h2 className="mb-4 text-[15px] font-semibold tracking-tight">
           {de.settings.account}
         </h2>
@@ -36,7 +36,7 @@ export default async function SettingsPage() {
         />
       </section>
 
-      <section className="rounded-2xl bg-surface p-5 card-elevated">
+      <section className="rise-3 rounded-2xl bg-surface p-5 card-elevated">
         <h2 className="mb-2 text-[15px] font-semibold tracking-tight">
           {de.settings.privacyTitle}
         </h2>
@@ -45,10 +45,10 @@ export default async function SettingsPage() {
         </p>
       </section>
 
-      <form action="/auth/signout" method="post">
+      <form action="/auth/signout" method="post" className="rise-4">
         <button
           type="submit"
-          className="w-full rounded-xl bg-surface px-4 py-3 text-sm font-medium text-red-700 card-elevated transition hover:bg-red-50"
+          className="pressable w-full rounded-xl bg-surface px-4 py-3 text-sm font-medium text-red-700 card-elevated hover:bg-red-50"
         >
           {de.auth.logout}
         </button>

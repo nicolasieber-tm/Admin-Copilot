@@ -16,7 +16,7 @@ export default async function DocumentsPage() {
 
   return (
     <div className="flex flex-col gap-5">
-      <header className="flex items-center justify-between gap-3">
+      <header className="rise flex items-center justify-between gap-3">
         <h1 className="text-2xl font-semibold tracking-tight">
           {de.documents.title}
         </h1>
@@ -29,12 +29,12 @@ export default async function DocumentsPage() {
       </header>
 
       {documents && documents.length > 0 ? (
-        <ul className="flex flex-col gap-3">
+        <ul className="rise-2 flex flex-col gap-3">
           {documents.map((doc) => (
             <li key={doc.id}>
               <Link
                 href={`/documents/${doc.id}`}
-                className="card-elevated flex items-center justify-between gap-3 rounded-2xl bg-surface p-4 transition hover:opacity-90 active:scale-[0.99]"
+                className="card-elevated pressable flex items-center justify-between gap-3 rounded-2xl bg-surface p-4 hover:opacity-90"
               >
                 <span className="min-w-0">
                   <span className="block truncate font-medium">

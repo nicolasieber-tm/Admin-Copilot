@@ -19,30 +19,39 @@ import { formatDateValue } from "@/lib/documents";
 export function BudgetItemRow({ item }: { item: BudgetItemRowData }) {
   const router = useRouter();
   const [pending, setPending] = useState(false);
-  const settled = item.status === "paid" || item.status === "received";
+  // Optimistischer Zustand: Abhak-Animation sofort zeigen, erst danach neu laden
+  const [optimisticSettled, setOptimisticSettled] = useState<boolean | null>(
+    null
+  );
+  const settled =
+    optimisticSettled ?? (item.status === "paid" || item.status === "received");
+  const justChecked = optimisticSettled === true;
   const isOverviewOnly = !!item.recurrence_parent_id && !item.document_id;
   const doneLabel =
     item.item_type === "income" ? de.budget.markReceived : de.budget.markPaid;
 
   async function toggle() {
+    const next = !settled;
+    setOptimisticSettled(next);
     setPending(true);
     const supabase = createClient();
     await supabase
       .from("budget_items")
       .update({
-        status: settled
-          ? "planned"
-          : item.item_type === "income"
+        status: next
+          ? item.item_type === "income"
             ? "received"
-            : "paid",
+            : "paid"
+          : "planned",
       })
       .eq("id", item.id);
+    await new Promise((resolve) => setTimeout(resolve, next ? 450 : 150));
     router.refresh();
     setPending(false);
   }
 
   return (
-    <li className="flex items-center gap-3 py-3">
+    <li className={`flex items-center gap-3 py-3 ${settled ? "is-done" : ""}`}>
       {isOverviewOnly ? (
         <span
           aria-hidden
@@ -63,21 +72,21 @@ export function BudgetItemRow({ item }: { item: BudgetItemRowData }) {
           disabled={pending}
           aria-label={settled ? de.budget.markPlanned : doneLabel}
           title={settled ? de.budget.markPlanned : doneLabel}
-          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 transition active:scale-95 disabled:opacity-50 ${
+          className={`check-anim ${justChecked ? "check-pop" : ""} flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 transition active:scale-90 disabled:opacity-50 ${
             settled
               ? "border-emerald-500 bg-emerald-500 text-white"
-              : "border-black/20 bg-white text-transparent hover:border-accent"
+              : "border-black/20 bg-white text-white/0 hover:border-accent"
           }`}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="h-4 w-4">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            <path className="check-path" strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </button>
       )}
 
-      <Link href={`/budget/${item.id}`} className="min-w-0 flex-1 transition hover:opacity-80">
+      <Link href={`/budget/${item.id}`} className="pressable min-w-0 flex-1 hover:opacity-80">
         <span
-          className={`block truncate text-sm font-medium ${settled ? "text-muted line-through" : ""}`}
+          className={`task-title block w-fit max-w-full truncate text-sm font-medium transition-colors ${settled ? "text-muted" : ""}`}
         >
           {item.title}
         </span>

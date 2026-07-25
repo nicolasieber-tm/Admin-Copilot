@@ -21,43 +21,50 @@ import {
 export function TaskItem({ task }: { task: TaskListItem }) {
   const router = useRouter();
   const [pending, setPending] = useState(false);
-  const done = DONE_TASK_STATUSES.includes(task.status);
+  // Optimistischer Zustand: die Abhak-Animation läuft sofort, das
+  // Neuladen (und damit der Gruppenwechsel) folgt erst danach.
+  const [optimisticDone, setOptimisticDone] = useState<boolean | null>(null);
+  const done = optimisticDone ?? DONE_TASK_STATUSES.includes(task.status);
+  const justChecked = optimisticDone === true;
   const overdue = isTaskOverdue(task);
   const amount = formatTaskAmount(task.amount, task.currency);
 
   async function toggle() {
+    const next = !done;
+    setOptimisticDone(next);
     setPending(true);
     const supabase = createClient();
     await supabase
       .from("tasks")
-      .update({ status: done ? "open" : "completed" })
+      .update({ status: next ? "completed" : "open" })
       .eq("id", task.id);
+    await new Promise((resolve) => setTimeout(resolve, next ? 450 : 150));
     router.refresh();
     setPending(false);
   }
 
   return (
-    <li className="flex items-center gap-3 py-3">
+    <li className={`flex items-center gap-3 py-3 ${done ? "is-done" : ""}`}>
       <button
         type="button"
         onClick={toggle}
         disabled={pending}
         aria-label={done ? de.tasks.reopen : de.tasks.complete}
         title={done ? de.tasks.reopen : de.tasks.complete}
-        className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 transition active:scale-95 disabled:opacity-50 ${
+        className={`check-anim ${justChecked ? "check-pop" : ""} flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 transition active:scale-90 disabled:opacity-50 ${
           done
             ? "border-emerald-500 bg-emerald-500 text-white"
-            : "border-black/20 bg-white text-transparent hover:border-accent"
+            : "border-black/20 bg-white text-white/0 hover:border-accent"
         }`}
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="h-4 w-4">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+          <path className="check-path" strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
         </svg>
       </button>
 
-      <Link href={`/tasks/${task.id}`} className="min-w-0 flex-1 transition hover:opacity-80">
+      <Link href={`/tasks/${task.id}`} className="pressable min-w-0 flex-1 hover:opacity-80">
         <span
-          className={`block truncate text-sm font-medium ${done ? "text-muted line-through" : ""}`}
+          className={`task-title block w-fit max-w-full truncate text-sm font-medium transition-colors ${done ? "text-muted" : ""}`}
         >
           {task.title}
         </span>

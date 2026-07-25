@@ -67,11 +67,11 @@ export default async function BudgetPage({
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex items-center justify-between">
+      <div className="rise flex items-center justify-between">
         <h1 className="text-2xl font-semibold tracking-tight">{de.budget.title}</h1>
       </div>
 
-      <div className="flex items-center justify-between rounded-2xl bg-surface px-3 py-2 card-elevated">
+      <div className="rise-2 flex items-center justify-between rounded-2xl bg-surface px-3 py-2 card-elevated">
         <Link
           href={`/budget?m=${shiftMonth(month, -1)}`}
           aria-label={de.budget.prevMonth}
@@ -89,7 +89,7 @@ export default async function BudgetPage({
         </Link>
       </div>
 
-      <section className="rounded-2xl bg-surface p-5 card-elevated">
+      <section className="rise-3 rounded-2xl bg-surface p-5 card-elevated">
         <dl className="flex flex-col gap-2 text-sm">
           <div className="flex justify-between gap-4">
             <dt className="text-muted">{de.budget.summary.income}</dt>
@@ -122,6 +122,7 @@ export default async function BudgetPage({
         )}
       </section>
 
+      <div className="rise-4 flex flex-col gap-5">
       <NewBudgetItemForm month={month} />
 
       {(items ?? []).length === 0 && (
@@ -157,6 +158,7 @@ export default async function BudgetPage({
       )}
 
       <RecurringSection items={recurring ?? []} />
+      </div>
     </div>
   );
 }
