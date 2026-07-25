@@ -24,9 +24,13 @@ type NavItem = {
 
 export function BottomNav() {
   const pathname = usePathname();
+  // Auf der Scan-Seite gehört kein Tab markiert – sie wird über den
+  // mittleren Button erreicht, nicht über die Tabs.
+  const onScanPage = pathname === "/documents/upload";
 
   const renderItem = ({ href, label, icon: Icon }: NavItem) => {
-    const active = pathname === href || pathname.startsWith(`${href}/`);
+    const active =
+      !onScanPage && (pathname === href || pathname.startsWith(`${href}/`));
     return (
       <Link
         key={href}
