@@ -4,16 +4,43 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { de } from "@/lib/i18n/de";
 
-const items = [
+// Cockpit-Nav (Design-Entscheid D2): vier Ziele plus Scan-Button in der Mitte.
+// Das Profil ist über den Avatar im Kopf des Start-Tabs erreichbar.
+const leftItems = [
   { href: "/dashboard", label: de.nav.home, icon: HomeIcon },
   { href: "/documents", label: de.nav.documents, icon: DocumentIcon },
+];
+
+const rightItems = [
   { href: "/tasks", label: de.nav.tasks, icon: CheckIcon },
   { href: "/budget", label: de.nav.budget, icon: WalletIcon },
-  { href: "/settings", label: de.nav.profile, icon: UserIcon },
 ];
+
+type NavItem = {
+  href: string;
+  label: string;
+  icon: (props: IconProps) => React.JSX.Element;
+};
 
 export function BottomNav() {
   const pathname = usePathname();
+
+  const renderItem = ({ href, label, icon: Icon }: NavItem) => {
+    const active = pathname === href || pathname.startsWith(`${href}/`);
+    return (
+      <Link
+        key={href}
+        href={href}
+        aria-current={active ? "page" : undefined}
+        className={`flex min-w-0 flex-1 flex-col items-center gap-0.5 px-1 py-2.5 text-[11px] font-medium transition ${
+          active ? "text-accent-deep" : "text-muted hover:text-foreground"
+        }`}
+      >
+        <Icon className="h-6 w-6" />
+        <span className="truncate">{label}</span>
+      </Link>
+    );
+  };
 
   return (
     <nav
@@ -22,23 +49,18 @@ export function BottomNav() {
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
       <div className="mx-auto flex max-w-lg items-stretch justify-between px-2">
-        {items.map(({ href, label, icon: Icon }) => {
-          const active =
-            pathname === href || pathname.startsWith(`${href}/`);
-          return (
-            <Link
-              key={href}
-              href={href}
-              aria-current={active ? "page" : undefined}
-              className={`flex min-w-0 flex-1 flex-col items-center gap-0.5 px-1 py-2.5 text-[11px] font-medium transition ${
-                active ? "text-accent" : "text-muted hover:text-foreground"
-              }`}
-            >
-              <Icon className="h-6 w-6" />
-              <span className="truncate">{label}</span>
-            </Link>
-          );
-        })}
+        {leftItems.map(renderItem)}
+        <div className="flex w-[72px] shrink-0 items-start justify-center">
+          <Link
+            href="/documents/upload"
+            aria-label={de.nav.scan}
+            title={de.nav.scan}
+            className="scan-gradient -mt-6 flex h-14 w-14 items-center justify-center rounded-full text-white shadow-lg shadow-cyan-950/40 ring-4 ring-background transition hover:brightness-110 active:scale-95"
+          >
+            <ScanIcon className="h-6 w-6" />
+          </Link>
+        </div>
+        {rightItems.map(renderItem)}
       </div>
     </nav>
   );
@@ -81,11 +103,13 @@ function WalletIcon({ className }: IconProps) {
   );
 }
 
-function UserIcon({ className }: IconProps) {
+function ScanIcon({ className }: IconProps) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
-      <circle cx="12" cy="8.5" r="3.5" />
-      <path strokeLinecap="round" d="M5 20c1.2-3.2 3.9-5 7-5s5.8 1.8 7 5" />
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className}>
+      <path
+        strokeLinecap="round"
+        d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2M7 12h10"
+      />
     </svg>
   );
 }

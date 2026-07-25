@@ -13,6 +13,7 @@ export const de = {
     tasks: "Aufgaben",
     budget: "Budget",
     profile: "Profil",
+    scan: "Dokument scannen",
   },
   auth: {
     email: "E-Mail-Adresse",
@@ -71,6 +72,22 @@ export const de = {
     review: "Bitte prüfen und bestätigen",
     reviewHint:
       "Diese Dokumente sind analysiert und warten auf deine Bestätigung.",
+    reviewCount: (n: number) =>
+      n === 1
+        ? "Ein Dokument wartet auf deine Prüfung"
+        : `${n} Dokumente warten auf deine Prüfung`,
+    availableIn: (month: string) => `Verfügbar im ${month}`,
+    quota: "Vom Einkommen verplant",
+    openDeadlines: "Fristen offen",
+    deadlines: "Nächste Fristen",
+    all: "Alle",
+    profileOpen: "Profil öffnen",
+    due: {
+      overdue: "Überfällig",
+      today: "heute",
+      tomorrow: "morgen",
+      inDays: (n: number) => `in ${n} Tagen`,
+    },
     available: "Verfügbar diesen Monat",
     trend: "Budgetverlauf",
     trendHint: "Voraussichtlicher Rest pro Monat",
@@ -79,7 +96,7 @@ export const de = {
     budget: "Budget diesen Monat",
     noBudget:
       "Noch keine Budgetdaten für diesen Monat. Öffne den Budget-Tab, um zu starten.",
-    openDocuments: "Zuletzt hochgeladene Dokumente",
+    openDocuments: "Letzte Dokumente",
     noDocuments: "Noch keine Dokumente. Lade dein erstes Dokument hoch.",
   },
   documents: {
