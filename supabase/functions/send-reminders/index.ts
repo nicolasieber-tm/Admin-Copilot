@@ -41,7 +41,7 @@ function emailHtml(title: string, message: string, taskUrl: string): string {
       Admin Copilot
     </div>
     <div style="padding:24px;">
-      <p style="margin:0 0 6px; font-size:17px; font-weight:600;">${escapeHtml(title)}</p>
+      <p style="margin:0 0 6px; font-size:17px; font-weight:600; color:#17222b;">${escapeHtml(title)}</p>
       <p style="margin:0 0 20px; font-size:14px; line-height:1.6; color:#5c6b78;">${escapeHtml(message)}</p>
       <a href="${taskUrl}" style="display:inline-block; background:#0e7490; color:#ffffff; text-decoration:none; border-radius:999px; padding:11px 22px; font-size:14px; font-weight:600;">
         Aufgabe öffnen

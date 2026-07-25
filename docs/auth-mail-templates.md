@@ -20,7 +20,7 @@ Anzeigename «Admin Copilot».
     <div style="max-width:480px; margin:0 auto; background:#ffffff; border-radius:16px; overflow:hidden;">
       <div style="background:#0a3a4a; color:#ffffff; padding:20px 24px; font-size:15px; font-weight:700;">Admin Copilot</div>
       <div style="padding:24px;">
-        <p style="margin:0 0 6px; font-size:17px; font-weight:600;">Willkommen beim Admin Copilot!</p>
+        <p style="margin:0 0 6px; font-size:17px; font-weight:600; color:#17222b;">Willkommen beim Admin Copilot!</p>
         <p style="margin:0 0 20px; font-size:14px; line-height:1.6; color:#5c6b78;">Schön, bist du da. Bestätige deine E-Mail-Adresse, um loszulegen &ndash; danach kannst du deinen ersten Brief scannen.</p>
         <a href="{{ .ConfirmationURL }}" style="display:inline-block; background:#0e7490; color:#ffffff; text-decoration:none; border-radius:999px; padding:11px 22px; font-size:14px; font-weight:600;">E-Mail-Adresse bestätigen</a>
         <p style="margin:20px 0 0; font-size:12px; line-height:1.6; color:#8a969e;">Funktioniert der Knopf nicht? Kopiere diesen Link in deinen Browser:<br /><span style="word-break:break-all; color:#0e7490;">{{ .ConfirmationURL }}</span></p>
@@ -43,7 +43,7 @@ Anzeigename «Admin Copilot».
     <div style="max-width:480px; margin:0 auto; background:#ffffff; border-radius:16px; overflow:hidden;">
       <div style="background:#0a3a4a; color:#ffffff; padding:20px 24px; font-size:15px; font-weight:700;">Admin Copilot</div>
       <div style="padding:24px;">
-        <p style="margin:0 0 6px; font-size:17px; font-weight:600;">Dein Anmelde-Link</p>
+        <p style="margin:0 0 6px; font-size:17px; font-weight:600; color:#17222b;">Dein Anmelde-Link</p>
         <p style="margin:0 0 20px; font-size:14px; line-height:1.6; color:#5c6b78;">Mit einem Klick bist du angemeldet &ndash; ganz ohne Passwort. Der Link ist nur kurze Zeit gültig.</p>
         <a href="{{ .ConfirmationURL }}" style="display:inline-block; background:#0e7490; color:#ffffff; text-decoration:none; border-radius:999px; padding:11px 22px; font-size:14px; font-weight:600;">Jetzt anmelden</a>
         <p style="margin:20px 0 0; font-size:12px; line-height:1.6; color:#8a969e;">Funktioniert der Knopf nicht? Kopiere diesen Link in deinen Browser:<br /><span style="word-break:break-all; color:#0e7490;">{{ .ConfirmationURL }}</span></p>
@@ -66,7 +66,7 @@ Anzeigename «Admin Copilot».
     <div style="max-width:480px; margin:0 auto; background:#ffffff; border-radius:16px; overflow:hidden;">
       <div style="background:#0a3a4a; color:#ffffff; padding:20px 24px; font-size:15px; font-weight:700;">Admin Copilot</div>
       <div style="padding:24px;">
-        <p style="margin:0 0 6px; font-size:17px; font-weight:600;">Passwort zurücksetzen</p>
+        <p style="margin:0 0 6px; font-size:17px; font-weight:600; color:#17222b;">Passwort zurücksetzen</p>
         <p style="margin:0 0 20px; font-size:14px; line-height:1.6; color:#5c6b78;">Du hast angefordert, dein Passwort zurückzusetzen. Klicke auf den Knopf und lege ein neues fest.</p>
         <a href="{{ .ConfirmationURL }}" style="display:inline-block; background:#0e7490; color:#ffffff; text-decoration:none; border-radius:999px; padding:11px 22px; font-size:14px; font-weight:600;">Neues Passwort festlegen</a>
         <p style="margin:20px 0 0; font-size:12px; line-height:1.6; color:#8a969e;">Funktioniert der Knopf nicht? Kopiere diesen Link in deinen Browser:<br /><span style="word-break:break-all; color:#0e7490;">{{ .ConfirmationURL }}</span></p>
@@ -89,7 +89,7 @@ Anzeigename «Admin Copilot».
     <div style="max-width:480px; margin:0 auto; background:#ffffff; border-radius:16px; overflow:hidden;">
       <div style="background:#0a3a4a; color:#ffffff; padding:20px 24px; font-size:15px; font-weight:700;">Admin Copilot</div>
       <div style="padding:24px;">
-        <p style="margin:0 0 6px; font-size:17px; font-weight:600;">Neue E-Mail-Adresse bestätigen</p>
+        <p style="margin:0 0 6px; font-size:17px; font-weight:600; color:#17222b;">Neue E-Mail-Adresse bestätigen</p>
         <p style="margin:0 0 20px; font-size:14px; line-height:1.6; color:#5c6b78;">Du möchtest die E-Mail-Adresse deines Kontos zu {{ .NewEmail }} ändern. Bestätige die neue Adresse mit einem Klick.</p>
         <a href="{{ .ConfirmationURL }}" style="display:inline-block; background:#0e7490; color:#ffffff; text-decoration:none; border-radius:999px; padding:11px 22px; font-size:14px; font-weight:600;">Neue Adresse bestätigen</a>
         <p style="margin:20px 0 0; font-size:12px; line-height:1.6; color:#8a969e;">Funktioniert der Knopf nicht? Kopiere diesen Link in deinen Browser:<br /><span style="word-break:break-all; color:#0e7490;">{{ .ConfirmationURL }}</span></p>
