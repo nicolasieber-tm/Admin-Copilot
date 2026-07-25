@@ -32,11 +32,19 @@ export function BottomNav() {
         key={href}
         href={href}
         aria-current={active ? "page" : undefined}
-        className={`flex min-w-0 flex-1 flex-col items-center gap-0.5 px-1 py-2.5 text-[11px] font-medium transition ${
-          active ? "text-accent-deep" : "text-muted hover:text-foreground"
+        className={`flex min-w-0 flex-1 flex-col items-center gap-0.5 px-1 py-2 text-[11px] transition ${
+          active
+            ? "font-semibold text-accent-deep"
+            : "font-medium text-muted hover:text-foreground"
         }`}
       >
-        <Icon className="h-6 w-6" />
+        <span
+          className={`flex h-7 items-center justify-center rounded-full px-4 transition ${
+            active ? "bg-accent-soft" : ""
+          }`}
+        >
+          <Icon className="h-6 w-6" strokeWidth={active ? 2.2 : 1.8} />
+        </span>
         <span className="truncate">{label}</span>
       </Link>
     );
@@ -66,37 +74,37 @@ export function BottomNav() {
   );
 }
 
-type IconProps = { className?: string };
+type IconProps = { className?: string; strokeWidth?: number };
 
-function HomeIcon({ className }: IconProps) {
+function HomeIcon({ className, strokeWidth = 1.8 }: IconProps) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} className={className}>
       <path strokeLinecap="round" strokeLinejoin="round" d="m3 10.5 9-7 9 7V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z" />
     </svg>
   );
 }
 
-function DocumentIcon({ className }: IconProps) {
+function DocumentIcon({ className, strokeWidth = 1.8 }: IconProps) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} className={className}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" />
       <path strokeLinecap="round" d="M14 3v5h5M9.5 13h5M9.5 16.5h5" />
     </svg>
   );
 }
 
-function CheckIcon({ className }: IconProps) {
+function CheckIcon({ className, strokeWidth = 1.8 }: IconProps) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} className={className}>
       <rect x="4" y="4" width="16" height="16" rx="3" />
       <path strokeLinecap="round" strokeLinejoin="round" d="m8.5 12.5 2.5 2.5 4.5-5.5" />
     </svg>
   );
 }
 
-function WalletIcon({ className }: IconProps) {
+function WalletIcon({ className, strokeWidth = 1.8 }: IconProps) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} className={className}>
       <rect x="3" y="6" width="18" height="13" rx="2.5" />
       <path d="M3 10h18M16 14.5h2" strokeLinecap="round" />
     </svg>
